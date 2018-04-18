@@ -1,7 +1,7 @@
 package demo
 
 import java.math.BigInteger
-import com.micronautics.webuj.{Cmd, Hucer, HappyUCSynchronous, WebuJScala}
+import com.micronautics.webuj.{Cmd, Huc, HappyUCSynchronous, WebuJScala}
 import Cmd.{isMac, isWindows}
 import org.webuj.protocol.Webuj
 import org.webuj.protocol.ipc.{UnixIpcService, WindowsIpcService}
@@ -10,7 +10,7 @@ import scala.concurrent.{Await, ExecutionContext, Promise}
 import org.webuj.protocol.core.DefaultBlockParameterName._
 
 object Demo {
-  val gasPrice: Hucer = Hucer(1)
+  val gasPrice: Huc = Huc(1)
   val gasLimit: BigInteger = BigInt(2).bigInteger
 
   val walletDir: String = Cmd.home(

@@ -37,7 +37,7 @@ case class LLLSource(value: String) extends AnyVal {
 }
 
 /** An account nonce is a transaction counter, provided by HappyUC for each Account.
-  * Nonces prevent replay attacks wherein a transaction sending Hucer from A to B can be replayed by B over and over to
+  * Nonces prevent replay attacks wherein a transaction sending Huc from A to B can be replayed by B over and over to
   * continually drain A's balance.
   * @see See [[https://github.com/happyuc-project/wiki/wiki/Glossary Glossary]] */
 case class Nonce(value: BigInt) extends AnyVal {

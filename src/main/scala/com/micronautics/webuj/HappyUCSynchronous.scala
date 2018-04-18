@@ -29,8 +29,8 @@ class HappyUCSynchronous(val webuj: Webuj) {
     * @param defaultBlockParameter either an integer block number, or the string "latest", "earliest" or "pending".
     * See the [[https://github.com/happyuc-project/wiki/wiki/JSON-RPC#the-default-block-parameter specification]].
     * @return the balance of the account at given address */
-  def balance(address: Address, defaultBlockParameter: DefaultBlockParameter): Hucer =
-    Hucer(webuj.hucGetBalance(address.value, defaultBlockParameter).send.getBalance)
+  def balance(address: Address, defaultBlockParameter: DefaultBlockParameter): Huc =
+    Huc(webuj.hucGetBalance(address.value, defaultBlockParameter).send.getBalance)
 
   /** Invokes the [[https://github.com/happyuc-project/wiki/wiki/JSON-RPC#huc_getblockbyhash huc_getblockbyhash]] JSON-RPC endpoint.
     * @return Some(block object), or None if no block was found */
@@ -89,7 +89,7 @@ class HappyUCSynchronous(val webuj: Webuj) {
     * for estimating the used gas.
     * Invokes the [[https://github.com/happyuc-project/wiki/wiki/JSON-RPC#huc_estimategas huc_estimategas]] JSON-RPC endpoint.
     * @return amount of gas estimated */
-  def estimateGas(transaction: request.Transaction): Hucer = Hucer(webuj.hucEstimateGas(transaction).send.getAmountUsed)
+  def estimateGas(transaction: request.Transaction): Huc = Huc(webuj.hucEstimateGas(transaction).send.getAmountUsed)
 
   /** Polling method for an huc filter.
     *
@@ -109,7 +109,7 @@ class HappyUCSynchronous(val webuj: Webuj) {
 
   /** Invokes the [[https://github.com/happyuc-project/wiki/wiki/JSON-RPC#huc_gasprice huc_gasprice]] JSON-RPC endpoint.
     * @return the current price per gas in wei */
-  def gasPrice: Hucer = Hucer(webuj.hucGasPrice.send.getGasPrice)
+  def gasPrice: Huc = Huc(webuj.hucGasPrice.send.getGasPrice)
 
   /** Query the hash rate.
     *

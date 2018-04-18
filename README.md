@@ -56,9 +56,9 @@ To run the demo:
       --wsapi huc,net,webuj,clique,debug,huc,miner,personal,rpc,ssh,txpool \
       --verbosity 2
    ```
-   You will see the message `No etherbase set and no accounts found as default`.
-   Hucerbase is the index into `personal.listAccounts` which determines the account to send Hucer too.
-   You can specify this value with the option `--etherbase 0`.
+   You will see the message `No coinbase set and no accounts found as default`.
+   Coinbase is the index into `personal.listAccounts` which determines the account to send Huc too.
+   You can specify this value with the option `--coinbase 0`.
 2. The shell that you just used will continuously scroll output so long as `ghuc` continues to run,
    so type the following into another shell:
    ```

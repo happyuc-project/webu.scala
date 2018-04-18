@@ -32,7 +32,7 @@ $ ghuc -h
      wallet      Manage HappyUC presale wallets
      help, h     Shows a list of commands or help for one command
 
-  ETHEREUM OPTIONS:
+  HAPPYUC OPTIONS:
     --config value                      TOML configuration file
     --datadir "/home/mslinn/.happyuc"  Data directory for the databases and keystore
     --keystore                          Directory for the keystore (default = inside the datadir)
@@ -113,7 +113,7 @@ $ ghuc -h
   MINER OPTIONS:
     --mine                    Enable mining
     --minerthreads value      Number of CPU threads to use for mining (default: 8)
-    --etherbase value         Public address for block mining rewards (default = first account created) (default: "0")
+    --coinbase value         Public address for block mining rewards (default = first account created) (default: "0")
     --targetgaslimit value    Target gas limit sets the artificial target gas floor for the blocks to mine (default: 4712388)
     --gasprice "18000000000"  Minimal gas price to accept for mining a transactions
     --extradata value         Block extra data set by the miner (default = client version)

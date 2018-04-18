@@ -9,17 +9,17 @@ import org.webuj.protocol.core.DefaultBlockParameterName._
 import org.webuj.protocol.core.methods.response.TransactionReceipt
 import org.webuj.protocol.http.HttpService
 import org.webuj.tx.Transfer
-import org.webuj.utils.Convert.Unit.{ETHER, WEI}
+import org.webuj.utils.Convert.Unit.{HUC, WEI}
 
 /** WebuJ provides support for both working with HappyUC wallet files (recommended) and HappyUC client admin commands
   * for sending transactions. */
 class DemoTransaction(demo: Demo) {
   import Demo._, demo._
 
-  //  Send Hucer to another party using your HappyUC wallet file
+  //  Send Huc to another party using your HappyUC wallet file
   val credentials: Credentials = WalletUtils.loadCredentials("password", walletDir)
   val transactionReceipt: TransactionReceipt =
-    Transfer.sendFunds(webuj, credentials, "0x...", BigDecimal.valueOf(0.01).bigDecimal, ETHER).send
+    Transfer.sendFunds(webuj, credentials, "0x...", BigDecimal.valueOf(0.01).bigDecimal, HUC).send
   println(format(transactionReceipt))
 
   // Before creating a custom transaction, first get the next available nonce
@@ -27,7 +27,7 @@ class DemoTransaction(demo: Demo) {
 
   // Create a custom transaction
   val rawTransaction: RawTransaction =
-    RawTransaction.createHucerTransaction(nonce.bigInteger, gasPrice.bigInteger, gasLimit, "toAddress", BigInt(1).bigInteger)
+    RawTransaction.createHucTransaction(nonce.bigInteger, gasPrice.bigInteger, gasLimit, "toAddress", BigInt(1).bigInteger)
   println(format(rawTransaction))
 
   // Sign & send the transaction
@@ -36,7 +36,7 @@ class DemoTransaction(demo: Demo) {
   val transactionHash: String = webuj.hucSendRawTransaction(hexValue).send.getTransactionHash
 
   // Now let's transfer some funds. Be sure a wallet is available in the client’s keystore. TODO how?
-  // One option is to use webuj’s `Transfer` class for transacting with Hucer.
+  // One option is to use webuj’s `Transfer` class for transacting with Huc.
   Transfer.sendFunds(webuj, credentials, "toAddress", BigDecimal(1).bigDecimal, WEI)
 
   // Here is how to use the HappyUC client’s admin commands:

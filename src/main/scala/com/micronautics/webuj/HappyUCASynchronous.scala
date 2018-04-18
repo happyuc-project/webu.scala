@@ -36,8 +36,8 @@ class HappyUCASynchronous(val webuj: Webuj)
     * @param defaultBlockParameter either an integer block number, or the string "latest", "earliest" or "pending".
     * See the [[https://github.com/happyuc-project/wiki/wiki/JSON-RPC#the-default-block-parameter specification]].
     * @return the balance of the account of given address */
-  def balance(address: Address, defaultBlockParameter: DefaultBlockParameter): Future[Hucer] =
-    webuj.hucGetBalance(address.value, defaultBlockParameter).sendAsync.toScala.map(x => Hucer(x.getBalance))
+  def balance(address: Address, defaultBlockParameter: DefaultBlockParameter): Future[Huc] =
+    webuj.hucGetBalance(address.value, defaultBlockParameter).sendAsync.toScala.map(x => Huc(x.getBalance))
 
   /** Invokes the [[https://github.com/happyuc-project/wiki/wiki/JSON-RPC#huc_getblockbyhash huc_getblockbyhash]] JSON-RPC endpoint.
     * @return Option[HucBlock.Block] */
@@ -104,8 +104,8 @@ class HappyUCASynchronous(val webuj: Webuj)
     * for estimating the used gas.
     * Invokes the [[https://github.com/happyuc-project/wiki/wiki/JSON-RPC#huc_estimategas huc_estimategas]] JSON-RPC endpoint.
     * @return amount of gas estimated */
-  def estimateGas(transaction: request.Transaction): Future[Hucer] =
-    webuj.hucEstimateGas(transaction).sendAsync.toScala.map(x => Hucer(x.getAmountUsed))
+  def estimateGas(transaction: request.Transaction): Future[Huc] =
+    webuj.hucEstimateGas(transaction).sendAsync.toScala.map(x => Huc(x.getAmountUsed))
 
   /** Polling mhucod for an huc filter.
     *
@@ -125,7 +125,7 @@ class HappyUCASynchronous(val webuj: Webuj)
 
   /** Invokes the [[https://github.com/happyuc-project/wiki/wiki/JSON-RPC#huc_gasprice huc_gasprice]] JSON-RPC endpoint.
     * @return the current price per gas in wei */
-  def gasPrice: Future[Hucer] = webuj.hucGasPrice.sendAsync.toScala.map(x => Hucer(x.getGasPrice))
+  def gasPrice: Future[Huc] = webuj.hucGasPrice.sendAsync.toScala.map(x => Huc(x.getGasPrice))
 
   /** Used for submitting mining hash rate
     *

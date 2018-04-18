@@ -50,7 +50,7 @@ contract basicInfoGetter {
   /***  A note about gas and gasprice:
    Every transaction must specify a quantity of "gas" that it is willing to consume (called startgas),
    and the fee that it is willing to pay per unit gas (gasprice). At the start of execution,
-   startgas * gasprice ether are removed from the transaction sender's account.
+   startgas * gasprice huc are removed from the transaction sender's account.
    Whatever is not used is immediately refunded.
    */
 
